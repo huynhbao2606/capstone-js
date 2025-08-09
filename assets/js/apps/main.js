@@ -4,7 +4,7 @@ let listProduct = [];
 
 // Lấy danh sách sản phẩm
 function getListProduct() {
-    api.getProduct()
+    api.getAll()
         .then(function (response) {
             listProduct = response.data;
             renderProduct(listProduct);
