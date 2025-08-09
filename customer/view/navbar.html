@@ -1,0 +1,85 @@
+<div class="max-w-8xl mx-auto px-4">
+
+    <div class="py-3 flex items-center justify-between gap-3 flex-wrap">
+
+
+        <div class="flex items-center">
+            <a href="../../index.html" class="main-logo inline-flex items-center">
+                <img src="../../assets/images/customer/logo.png"
+                     alt="Cybersoft Capstone"
+                     class="h-10 object-contain" />
+            </a>
+        </div>
+
+
+        <div class="order-3 w-full md:order-none md:flex-1">
+            <div class="search-bar hidden md:flex items-center gap-2 bg-gray-50 rounded-2xl shadow-sm
+                  px-3 w-full max-w-[640px] mx-auto md:mx-0">
+                <input type="text"
+                       class="flex-1 bg-transparent border-none outline-none text-sm md:text-base focus:ring-0 focus:border-0"
+                       placeholder="Tìm kiếm điện thoại, phụ kiện...">
+                <button class="icon flex items-center rounded-full justify-center border-0 bg-transparent cursor-pointer">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <div class="flex-none min-w-max flex items-center justify-end gap-3">
+            <div class="support-box text-right hidden xl:block mr-4">
+                <span class="text-sm text-gray-500">Hỗ trợ 24/7</span>
+                <h5 class="m-0 font-bold text-gray-900">+1800-123-456</h5>
+            </div>
+
+            <ul class="flex items-center gap-2 m-0 p-0 whitespace-nowrap">
+
+                <li class="md:hidden">
+                    <a href="#"
+                       class="icon flex items-center justify-center rounded-full bg-gray-50"
+                       data-drawer-target="searchDrawer"
+                       data-drawer-show="searchDrawer"
+                       data-drawer-placement="top"
+                       aria-controls="searchDrawer">
+                        <i class="fa-solid fa-magnifying-glass text-base"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="icon flex items-center justify-center rounded-full bg-gray-50">
+                        <i class="fa-regular fa-user text-base"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="icon flex items-center justify-center rounded-full bg-gray-50">
+                        <i class="fa-regular fa-heart text-base"></i>
+                    </a>
+                </li>
+
+                <li class="relative">
+                    <a href="#" class="icon flex items-center justify-center rounded-full bg-gray-50 relative">
+                        <i class="fa-regular fa-cart-shopping text-base"></i>
+                        <span id="cart-count"
+                              class="cart-badge absolute -top-1 -right-1 rounded-full bg-red-600 text-white text-[10px] leading-none px-1.5 py-0.5">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div id="searchDrawer"
+     class="fixed top-0 left-0 right-0 z-50 h-auto border-none transition-transform -translate-y-full bg-white"
+     tabindex="-1" aria-labelledby="drawer-label">
+    <div class="bg-white shadow-sm rounded-b-2xl p-3">
+        <div class="flex items-center bg-gray-50 rounded-2xl px-3 py-2">
+            <input type="text"
+                   class="flex-1 bg-transparent border-none outline-none focus:ring-0 focus:border-0"
+                   placeholder="Tìm kiếm điện thoại, phụ kiện...">
+            <button class="border-0 bg-transparent cursor-pointer">
+                <i class="fa-solid fa-magnifying-glass text-lg"></i>
+            </button>
+        </div>
+    </div>
+</div>

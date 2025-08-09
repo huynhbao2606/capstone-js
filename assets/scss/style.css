@@ -1,0 +1,68 @@
+header .main-logo img {
+  height: 70px;
+  width: 150px;
+}
+header .search-bar {
+  border: none;
+}
+header .icon {
+  width: 50px;
+  height: 50px;
+  transition: all 0.2s ease;
+}
+header .icon svg, header .icon .svg-inline--fa {
+  width: 23px;
+  height: 23px;
+}
+header .icon:hover {
+  background-color: #dddada;
+}
+@media (min-width: 768px) {
+  header .icon {
+    width: 50px;
+    height: 50px;
+  }
+  header .icon svg, header .icon .svg-inline--fa {
+    width: 22px;
+    height: 22px;
+  }
+  header .main-logo img {
+    width: 150px;
+    max-height: 50px;
+  }
+}
+header .cart-badge {
+  border: 1px solid #f5f9fe;
+  min-width: 16px;
+  text-align: center;
+}
+header .support-box h5 {
+  font-size: 1.1rem;
+  color: #29303b;
+}
+header .support-box span {
+  letter-spacing: 0.015rem;
+}
+
+main .product-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+@media (min-width: 640px) {
+  main .product-grid {
+    gap: 1.25rem;
+  }
+}
+main .cart-btn .tip::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  background: rgba(17, 24, 39, 0.95);
+}
+
+/*# sourceMappingURL=style.css.map */

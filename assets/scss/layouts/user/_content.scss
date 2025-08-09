@@ -1,0 +1,17 @@
+main {
+  .product-grid{
+    display:grid;
+    gap:1rem;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  }
+  @media (min-width:640px){ .product-grid{ gap:1.25rem; } }
+
+
+  .cart-btn .tip::after{
+    content:""; position:absolute; bottom:-3px; left:50%;
+    transform:translateX(-50%) rotate(45deg);
+    width:6px; height:6px; background:rgba(17,24,39,.95);
+  }
+
+}
+
