@@ -1,1 +1,1 @@
-# capstone-api
+# capstone-js
