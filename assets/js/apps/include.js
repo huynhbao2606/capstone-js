@@ -1,7 +1,7 @@
 async function includeHTML() {
     const elements = document.querySelectorAll('[data-include]');
     const loadedSrc = new Set(
-        [...document.querySelectorAll('script[src]')].map(s => new URL(s.src, location.href).href)
+        [...document.querySelectorAll('script[src]')].map(s => new URL(s.src, location.origin).href)
     );
 
     for (const el of elements) {
@@ -29,7 +29,7 @@ async function includeHTML() {
                 for (const attr of script.attributes) newScript.setAttribute(attr.name, attr.value);
 
                 if (script.src) {
-                    const abs = new URL(script.getAttribute('src'), location.href).href;
+                    const abs = new URL(script.getAttribute('src'), location.origin).href;
                     if (loadedSrc.has(abs)) continue;
                     newScript.src = abs;
 
