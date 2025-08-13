@@ -1,3 +1,167 @@
+header .main-logo img {
+  height: 70px;
+  width: 150px;
+}
+header .search-bar {
+  border: none;
+}
+header .icon {
+  width: 50px;
+  height: 50px;
+  transition: all 0.2s ease;
+}
+header .icon svg, header .icon .svg-inline--fa {
+  width: 23px;
+  height: 23px;
+}
+header .icon:hover {
+  background-color: #dddada;
+}
+@media (min-width: 768px) {
+  header .icon {
+    width: 50px;
+    height: 50px;
+  }
+  header .icon svg, header .icon .svg-inline--fa {
+    width: 22px;
+    height: 22px;
+  }
+  header .main-logo img {
+    width: 150px;
+    max-height: 50px;
+  }
+}
+header .cart-badge {
+  border: 1px solid #f5f9fe;
+  min-width: 16px;
+  text-align: center;
+}
+header .support-box h5 {
+  font-size: 1.1rem;
+  color: #29303b;
+}
+header .support-box span {
+  letter-spacing: 0.015rem;
+}
 
+#indicators-carousel [data-carousel-prev] span:hover,
+#indicators-carousel [data-carousel-next] span:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+#indicators-carousel [data-carousel-prev] i,
+#indicators-carousel [data-carousel-next] i {
+  color: #fff;
+}
 
-/*# sourceMappingURL=style.css.map */
+main .product-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+@media (min-width: 640px) {
+  main .product-grid {
+    gap: 1.25rem;
+  }
+}
+main .cart-btn .tip::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  background: rgba(17, 24, 39, 0.95);
+}
+
+@keyframes cart-bump {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.cart-animate-change {
+  color: #ed2100;
+  animation: cart-bump 0.3s ease-out;
+}
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 50%;
+}
+.loading-overlay.hidden {
+  display: none;
+}
+
+.clock-loader {
+  --clock-color: var(--primary-color, #fff);
+  --clock-width: 4rem;
+  --clock-radius: calc(var(--clock-width) / 2);
+  --clock-minute-length: calc(var(--clock-width) * 0.4);
+  --clock-hour-length: calc(var(--clock-width) * 0.2);
+  --clock-thickness: 0.2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--clock-width);
+  height: var(--clock-width);
+  border: 3px solid var(--clock-color);
+  border-radius: 50%;
+}
+.clock-loader::before, .clock-loader::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--clock-radius) * 0.25);
+  width: var(--clock-thickness);
+  background: var(--clock-color);
+  border-radius: 10px;
+  transform-origin: center calc(100% - var(--clock-thickness) / 2);
+  animation: spin infinite linear;
+}
+.clock-loader::before {
+  height: var(--clock-minute-length);
+  animation-duration: 2s;
+}
+.clock-loader::after {
+  top: calc(var(--clock-radius) * 0.25 + var(--clock-hour-length));
+  height: var(--clock-hour-length);
+  animation-duration: 15s;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+.brand {
+  color: #656774;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.qe {
+  background-color: #dddada;
+}
+
+.er {
+  background-color: #dddada;
+}
+
+.rr {
+  color: #29303b;
+}/*# sourceMappingURL=style.css.map */

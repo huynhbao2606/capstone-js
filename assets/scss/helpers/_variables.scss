@@ -3,23 +3,20 @@ $color-dark-1: #656774;
 $color-white-1: #f5f9fe;
 $color-white-2: #e2ebfc;
 $color-white-3: #fff;
-$color-white-4:#dddada;
+$color-white-4: #dddada;
 $color-blue-1: #1d365e;
 $color-blue-2: #2a73dd;
 $color-blue-3: #c9d8f4;
 $color-yellow-1: #f9d412;
-$color-black-0:#29303b;
-$color-scralet-0:#ED2100;
-
+$color-black-0: #29303b;
+$color-scralet-0: #ed2100;
 
 //dark color
-$color-dark-2:#121212;
-$color-dark-3:#353536;
-$color-dark-4:#212121;
+$color-dark-2: #121212;
+$color-dark-3: #353536;
+$color-dark-4: #212121;
 
-$color-blue-4:#2196f3;
-
-
+$color-blue-4: #2196f3;
 
 //font size
 $fs-1: 14px;
@@ -31,6 +28,7 @@ $fs-6: 2.25rem;
 $fs-7: 20px;
 $fs-8: 44px;
 $fs-9: 24px;
+$fs-10: 30px;
 
 //font weight
 $fw-1: 400;
@@ -50,8 +48,8 @@ $pd-5: 100px;
 $pd-6: 8px;
 $pd-7: 60px;
 $pd-8: 150px;
-$pd-9:5px;
-$pd-10:20px;
+$pd-9: 5px;
+$pd-10: 20px;
 
 //Margin
 $mg-0: 5px;
@@ -66,18 +64,15 @@ $bd-2: 8px;
 
 //break points
 $breakpoints: (
-        "extra-large": 1200px,
-        "large": 992px,
-        "medium": 768px,
-        "small": 576px,
-        "extra-large-down": 1199.98px,
-        "large-down": 991.98px,
-        "medium-down": 767.98px,
-        "small-down": 575.98px,
+  "extra-large": 1200px,
+  "large": 992px,
+  "medium": 768px,
+  "small": 576px,
+  "extra-large-down": 1199.98px,
+  "large-down": 991.98px,
+  "medium-down": 767.98px,
+  "small-down": 575.98px,
 );
-
-
 
 $carousel-arrow-bg-hover: rgba(0, 0, 0, 0.6);
 $carousel-arrow-icon-color: #fff;
-
