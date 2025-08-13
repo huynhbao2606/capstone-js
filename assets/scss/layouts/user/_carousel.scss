@@ -1,3 +1,13 @@
-.carousel{
+#indicators-carousel {
+  // Hover mũi tên
+  [data-carousel-prev] span:hover,
+  [data-carousel-next] span:hover {
+    background-color: $carousel-arrow-bg-hover;
+  }
 
+  // Màu icon mũi tên
+  [data-carousel-prev] i,
+  [data-carousel-next] i {
+    color: $carousel-arrow-icon-color;
+  }
 }

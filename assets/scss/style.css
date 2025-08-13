@@ -44,6 +44,15 @@ header .support-box span {
   letter-spacing: 0.015rem;
 }
 
+#indicators-carousel [data-carousel-prev] span:hover,
+#indicators-carousel [data-carousel-next] span:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+#indicators-carousel [data-carousel-prev] i,
+#indicators-carousel [data-carousel-next] i {
+  color: #fff;
+}
+
 main .product-grid {
   display: grid;
   gap: 1rem;
@@ -63,6 +72,81 @@ main .cart-btn .tip::after {
   width: 6px;
   height: 6px;
   background: rgba(17, 24, 39, 0.95);
+}
+
+@keyframes cart-bump {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.cart-animate-change {
+  color: #ED2100;
+  animation: cart-bump 0.3s ease-out;
+}
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 50%;
+}
+.loading-overlay.hidden {
+  display: none;
+}
+
+.clock-loader {
+  --clock-color: var(--primary-color, #fff);
+  --clock-width: 4rem;
+  --clock-radius: calc(var(--clock-width) / 2);
+  --clock-minute-length: calc(var(--clock-width) * 0.4);
+  --clock-hour-length: calc(var(--clock-width) * 0.2);
+  --clock-thickness: 0.2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--clock-width);
+  height: var(--clock-width);
+  border: 3px solid var(--clock-color);
+  border-radius: 50%;
+}
+.clock-loader::before, .clock-loader::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--clock-radius) * 0.25);
+  width: var(--clock-thickness);
+  background: var(--clock-color);
+  border-radius: 10px;
+  transform-origin: center calc(100% - var(--clock-thickness) / 2);
+  animation: spin infinite linear;
+}
+.clock-loader::before {
+  height: var(--clock-minute-length);
+  animation-duration: 2s;
+}
+.clock-loader::after {
+  top: calc(var(--clock-radius) * 0.25 + var(--clock-hour-length));
+  height: var(--clock-hour-length);
+  animation-duration: 15s;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

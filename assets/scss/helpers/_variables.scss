@@ -9,6 +9,7 @@ $color-blue-2: #2a73dd;
 $color-blue-3: #c9d8f4;
 $color-yellow-1: #f9d412;
 $color-black-0:#29303b;
+$color-scralet-0:#ED2100;
 
 
 //dark color
@@ -74,3 +75,9 @@ $breakpoints: (
         "medium-down": 767.98px,
         "small-down": 575.98px,
 );
+
+
+
+$carousel-arrow-bg-hover: rgba(0, 0, 0, 0.6);
+$carousel-arrow-icon-color: #fff;
+

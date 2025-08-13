@@ -1,8 +1,10 @@
 import productService from "../services/productService.js";
+import cartService from "../services/cartService.js";
+import { cartController } from "./cartController.js";
 import Product from "../model/product.js";
 
-
-export function loadProudct() {
+export function loadProduct() {
+    showLoading();
     productService.getAll()
         .then(res => {
             const listProduct = res.data.map(p => new Product(
@@ -10,10 +12,39 @@ export function loadProudct() {
                 p.frontCamera, p.image, p.description, p.type
             ));
             renderProduct(listProduct);
+            bindAddToCart(listProduct);
         })
-        .catch(err => console.error("Lỗi load sản phẩm", err));
+        .catch(err => {
+            console.error("Lỗi load sản phẩm", err);
+            document.getElementById('product-list').innerHTML = `
+                <div class="col-span-full text-center p-6">
+                    <p class="text-gray-600">Không tải được sản phẩm. Vui lòng thử lại.</p>
+                    <button id="retryLoad" class="mt-3 px-4 py-2 rounded bg-gray-800 text-white hover:bg-gray-900 cursor-pointer">
+                        Thử lại
+                    </button>
+                </div>
+            `;
+            document.getElementById('retryLoad')?.addEventListener('click', loadProduct);
+        })
+        .finally(() => {
+            hideLoading();
+        });
 }
 
+
+function showLoading() {
+    document.getElementById('loadingScreen').classList.remove('hidden');
+}
+
+function hideLoading() {
+    document.getElementById('loadingScreen').classList.add('hidden');
+}
+
+
+function addToCart(product, quantity) {
+    cartService.addCart(product, quantity);
+    cartController.updateBadge();
+}
 
 function renderProduct(products) {
     let contentProduct = '';
@@ -46,7 +77,7 @@ function renderProduct(products) {
         <!-- Giá + counter + giỏ -->
         <div class="mt-auto pt-2 border-t border-gray-100 flex items-center gap-1 min-w-0">
           <!-- Giá -->
-          <span class="price flex items-center gap-1 text-rose-600 font-bold text-[12px]
+          <span class="price flex items-center gap-1 text-rose-600 font-bold md:text-xs sm:text-md
                        min-w-0 flex-1 whitespace-nowrap overflow-hidden text-ellipsis
                        max-w-[6.5rem] sm:max-w-[8rem]">
             <i class="fa-solid fa-tags text-[12px]"></i> ${price}₫
@@ -56,21 +87,21 @@ function renderProduct(products) {
           <div class="flex items-center gap-1 flex-shrink-0">
             <!-- Counter -->
             <div class="counter relative flex items-center">
-              <button type="button" data-input-counter-decrement="qty-${i}"
+              <button type="button" data-input-counter-decrement="quantity-${p.id}"
                       class="h-7 w-7 grid place-items-center border border-gray-300 rounded-l bg-gray-100 hover:bg-gray-200 cursor-pointer">
                 <i class="fa-solid fa-minus text-[10px]"></i>
               </button>
-              <input id="qty-${i}" value="1" inputmode="numeric"
+              <input id="quantity-${p.id}" value="1" inputmode="numeric"
                      data-input-counter data-input-counter-min="1" data-input-counter-max="99"
                      class="h-7 w-8 text-[11px] text-center border-y border-gray-300 bg-gray-50"/>
-              <button type="button" data-input-counter-increment="qty-${i}"
+              <button type="button" data-input-counter-increment="quantity-${p.id}"
                       class="h-7 w-7 grid place-items-center border border-gray-300 rounded-r bg-gray-100 hover:bg-gray-200 cursor-pointer">
                 <i class="fa-solid fa-plus text-[10px]"></i>
               </button>
             </div>
 
             <!-- Nút giỏ hàng -->
-            <button class="cart-btn group relative h-8 w-8 grid place-items-center rounded-md bg-gray-700 text-white hover:bg-gray-800 focus:outline-none cursor-pointer">
+            <button data-product-id="${p.id}" id="btnAddCart" class="group relative h-8 w-8 grid place-items-center rounded-md bg-gray-700 text-white hover:bg-gray-800 focus:outline-none cursor-pointer">
               <i class="fa-solid fa-cart-plus fa-beat text-[11px]"></i>
               <span class="tip flex absolute -top-2 translate-y-[-100%] left-1/2 -translate-x-1/2
                            px-2 py-0.5 rounded text-[10px] text-white bg-gray-900/95 opacity-0
@@ -89,4 +120,19 @@ function renderProduct(products) {
     if (typeof window.initFlowbite === 'function') {
         window.initFlowbite();
     }
+
+
+}
+
+function bindAddToCart(products) {
+    document.querySelectorAll("#btnAddCart").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const id = btn.dataset.productId;
+            const product = products.find(p => p.id === id);
+            const qtyInput = document.getElementById(`quantity-${id}`);
+            const qty = Number(qtyInput.value) || 1;
+            addToCart(product, qty);
+            cartController.renderCart()
+        });
+    });
 }

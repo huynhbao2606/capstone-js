@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/scss/style.css">
 </head>
 <body>
-<header class="w-full bg-white shadow-sm">
+<header class="sticky top-0 z-50 bg-white shadow-sm">
     <div data-include="home/view/navbar.html"></div>
 </header>
 
@@ -23,6 +23,13 @@
 
 <!--Modal-->
 <div data-include="home/view/cart.html"></div>
+
+<!--Loading-->
+<div id="loadingScreen" class="loading-overlay hidden">
+    <div class="clock-loader"></div>
+</div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 <script src="/assets/js/libs/all.min.js"></script>
