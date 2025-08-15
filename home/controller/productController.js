@@ -91,6 +91,11 @@ function bindTypeFilterAndSearch() {
 
     // Tìm khi gõ (debounce)
     if (searchInput) {
+        let t;
+        searchInput.addEventListener('input', () => {
+            clearTimeout(t);
+            t = setTimeout(typeFilterAndSearch, 200);
+        });
         searchInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') typeFilterAndSearch(e);
         });
