@@ -42,5 +42,15 @@ header{
 
   .support-box h5 { font-size: $fs-2; color: $color-black-0; }
   .support-box span { letter-spacing: $ls-1; }
+
+
+  #searchDrawer.-translate-y-full { pointer-events: none; }
+  #searchDrawer:not(.-translate-y-full) { pointer-events: auto; }
+
+  .icon { width: 2.5rem; height: 2.5rem; }
+
+  .search-bar { height: 2.5rem; }
+
+
 }
 

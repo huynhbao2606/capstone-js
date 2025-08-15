@@ -41,66 +41,90 @@ export function loadProduct() {
 function typeFilterAndSearch(e) {
     if (e?.preventDefault) e.preventDefault();
 
-    const filter   = document.getElementById('typeFilter')?.value || 'all';
-    const keyword  = document.getElementById('searchFilter')?.value || '';
+    const filter = document.getElementById('typeFilter')?.value || 'all';
 
+    // lấy keyword từ bất kỳ ô nào có chữ
+    let keyword = '';
+    document.querySelectorAll('.search-input').forEach(input => {
+        if (input.value.trim()) keyword = input.value.trim();
+    });
+
+    // lọc theo type
     let result = (filter === 'all')
         ? [...allProducts]
         : allProducts.filter(item =>
             String(item.type).toLowerCase() === String(filter).toLowerCase()
         );
 
+    // lọc theo keyword
     const kw = normalize(keyword);
     if (kw.length > 0) {
         result = result.filter(item => {
             const name = normalize(item.name);
-            const desc = normalize(item.description || "");
+            const desc = normalize(item.price || "");
             return name.includes(kw) || desc.includes(kw);
         });
     }
 
+    // không tìm thấy kết quả
     if (result.length === 0) {
         const wrap = document.getElementById('product-list');
         if (wrap) {
             wrap.innerHTML = `
-        <div class="col-span-full text-center p-6 text-gray-600">
-          Không tìm thấy sản phẩm phù hợp.
-        </div>`;
+                <div class="col-span-full text-center p-6 text-gray-600">
+                  Không tìm thấy sản phẩm phù hợp.
+                </div>`;
         }
-
         listProduct = [];
         if (window.JOS?.refresh) JOS.refresh(); else if (window.JOS) JOS.init();
         return;
     }
 
+
+
+    // render lại kết quả
     listProduct = result;
     renderProduct(listProduct);
     bindAddToCart(listProduct);
 
     if (window.JOS?.refresh) JOS.refresh(); else if (window.JOS) JOS.init();
+
+    if (window.innerWidth < 768) closeMobileSearchDrawer();
 }
+
+function closeMobileSearchDrawer() {
+    const drawerEl = document.getElementById('searchDrawer');
+    if (!drawerEl) return;
+
+    drawerEl.classList.add('-translate-y-full');
+    drawerEl.setAttribute('aria-hidden', 'true');
+
+    document.documentElement.classList.remove('overflow-hidden');
+    document.body.classList.remove('overflow-hidden');
+}
+
 
 
 function bindTypeFilterAndSearch() {
-    const typeSelect  = document.getElementById('typeFilter');
-    const searchBtn   = document.getElementById('btnSearch');
-    const searchInput = document.getElementById('searchFilter');
+    const typeSelect = document.getElementById('typeFilter');
+    const searchBtns = document.querySelectorAll('.search-btn');
+    const searchInputs = document.querySelectorAll('.search-input');
 
-    if (typeSelect) typeSelect.addEventListener('change', typeFilterAndSearch);
-    if (searchBtn)  searchBtn.addEventListener('click', typeFilterAndSearch);
+    if (typeSelect) {
+        typeSelect.addEventListener('change', typeFilterAndSearch);
+    }
 
-    // Tìm khi gõ (debounce)
-    if (searchInput) {
-        let t;
-        searchInput.addEventListener('input', () => {
-            clearTimeout(t);
-            t = setTimeout(typeFilterAndSearch, 200);
-        });
-        searchInput.addEventListener('keydown', (e) => {
+    searchBtns.forEach(btn => {
+        btn.addEventListener('click', typeFilterAndSearch);
+    });
+
+    searchInputs.forEach(input => {
+        input.addEventListener('keydown', e => {
             if (e.key === 'Enter') typeFilterAndSearch(e);
         });
-    }
+    });
 }
+
 
 
 function normalize(str = "") {
