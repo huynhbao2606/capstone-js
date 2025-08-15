@@ -73,6 +73,13 @@ main .cart-btn .tip::after {
   height: 6px;
   background: rgba(17, 24, 39, 0.95);
 }
+main .card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+main .card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
 
 @keyframes cart-bump {
   0% {
