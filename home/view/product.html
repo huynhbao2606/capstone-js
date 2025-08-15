@@ -4,23 +4,15 @@
             <i class="fa-solid fa-mobile-screen text-gray-600"></i>
             Danh Sách Sản Phẩm
         </h1>
-
-
         <div class="flex items-center gap-3">
-            <select id="brandFilter"
-                    class="appearance-none h-10 w-[160px] rounded-xl border border-gray-300 px-4 pr-8 text-sm font-medium text-gray-700 focus:border-gray-500 focus:ring-1 focus:ring-gray-500">
+            <select id="typeFilter"
+                    class="appearance-none h-10 w-[160px] rounded-xl border border-gray-300 px-4 pr-8 text-sm font-medium text-gray-700 focus:border-gray-500 focus:ring-1 focus:ring-gray-500 cursor-pointer">
                 <option value="all">Tất cả hãng</option>
                 <option value="Apple">Apple</option>
                 <option value="Samsung">Samsung</option>
-            </select>
-
-            <select id="sortSelect"
-                    class="appearance-none h-10 w-[160px] rounded-xl border border-gray-300 px-4 pr-8 text-sm font-medium text-gray-700 focus:border-gray-500 focus:ring-1 focus:ring-gray-500">
-                <option value="default">Sắp xếp</option>
-                <option value="price-asc">Giá tăng dần</option>
-                <option value="price-desc">Giá giảm dần</option>
-                <option value="name-asc">Tên A → Z</option>
-                <option value="name-desc">Tên Z → A</option>
+                <option value="Oppo">Oppo</option>
+                <option value="OnePlus">OnePlus</option>
+                <option value="Asus">Asus</option>
             </select>
         </div>
     </div>
@@ -28,50 +20,5 @@
 
     <div id="product-list"
          class="product-grid">
-
-
     </div>
-
-    <nav aria-label="Page navigation example" class="mt-4 flex justify-center">
-        <ul class="flex items-center -space-x-px h-8 text-sm">
-            <li>
-                <a href="#"
-                   class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700">
-                    <span class="sr-only">Previous</span>
-                    <i class="fa-solid fa-angle-left"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                   class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">1</a>
-            </li>
-            <li>
-                <a href="#"
-                   class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
-            </li>
-            <li>
-                <a href="#"
-                   aria-current="page"
-                   class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-gray-600 border border-gray-300 bg-gray-50 hover:bg-gray-100 hover:text-gray-700">3</a>
-            </li>
-            <li>
-                <a href="#"
-                   class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">4</a>
-            </li>
-            <li>
-                <a href="#"
-                   class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">5</a>
-            </li>
-            <li>
-                <a href="#"
-                   class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700">
-                    <span class="sr-only">Next</span>
-                    <i class="fa-solid fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-
-
 </div>

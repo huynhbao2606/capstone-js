@@ -12,6 +12,7 @@ class CartController {
         this.$badge = null;
         this.$couponHelp = null
         this.$clearCart = null
+        this.$pay = null;
 
     }
 
@@ -26,6 +27,7 @@ class CartController {
         this.$badge = document.getElementById("cart-count");
         this.$couponHelp = document.getElementById('couponHelp');
         this.$clearCart = document.getElementById('clearCart');
+        this.$pay = document.getElementById('btnPay');
 
         if (!this.$cartItems) {
             if (retry < 20) {
@@ -44,7 +46,7 @@ class CartController {
         }
     }
 
-    updateTotalsUI(animated = false) {
+    updateTotals(animated = false) {
         const { subTotal, discount, shipping, total, invalidCoupon, coupon } = cartService.totals();
 
         const money = (n) => `${Number(n || 0).toLocaleString("vi-VN")}đ`;
@@ -84,13 +86,12 @@ class CartController {
         this.updateBadge();
     }
 
-
     renderCart() {
         const { cart } = cartService.totals();
 
         if (!cart.length) {
             this.$cartItems.innerHTML = '<p class="text-gray-500">Giỏ Hàng Trống.</p>';
-            this.updateTotalsUI();
+            this.updateTotals();
             return;
         }
 
@@ -126,8 +127,9 @@ class CartController {
             </article>
         `).join("");
 
-        this.updateTotalsUI();
+        this.updateTotals();
     }
+
 
     events() {
         // Input
@@ -137,7 +139,7 @@ class CartController {
             const id = input.id.replace("quantity-", "");
             const quantity = Number(input.value);
             cartService.updateQuantity(id, quantity);
-            this.updateTotalsUI(true);
+            this.updateTotals(true);
         });
 
         // + -
@@ -158,7 +160,7 @@ class CartController {
             input.value = qty; // cập nhật UI
             const id = article.dataset.id;
             cartService.updateQuantity(id, qty);
-            this.updateTotalsUI(true);
+            this.updateTotals(true);
         });
 
 
@@ -181,9 +183,67 @@ class CartController {
 
         // Clear cart
         this.$clearCart.addEventListener("click", () => {
-            cartService.clear();
-            this.renderCart();
+            if(!cartService.read().length) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Giỏ hàng đang trống",
+                    text: "Vui lòng thêm sản phẩm.",
+                    timer: 1500,
+                    showConfirmButton: false
+                })
+            }else{
+                Swal.fire({
+                    title: "Bạn có chắc muốn xóa toàn bộ giỏ hàng?",
+                    text: "Hành động này sẽ không thể hoàn tác!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#d33",
+                    cancelButtonColor: "#3085d6",
+                    confirmButtonText: "Xóa",
+                    cancelButtonText: "Hủy"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        cartService.clear();
+                        document.querySelector('[data-modal-hide="cartModal"]')?.click();
+                        this.renderCart();
+                        Swal.fire({
+                            icon: "success",
+                            title: "Đã xóa giỏ hàng!",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                });
+            }
+        });
+
+
+        //Pay cart
+        this.$pay.addEventListener("click", () => {
+            console.log(cartService.read())
+            if(!cartService.read().length){
+                Swal.fire({
+                    icon: "error",
+                    title: "Giỏ hàng đang trống",
+                    text: "Vui lòng thêm sản phẩm trước khi thanh toán.",
+                    timer: 1500,
+                    showConfirmButton: false
+                })
+            }else{
+                cartService.clear();
+                document.querySelector('[data-modal-hide="cartModal"]')?.click();
+                Swal.fire({
+                    icon: "success",
+                    title: `Thanh Toán Thành Công!!` ,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                this.renderCart();
+                this.updateTotals();
+            }
+
         })
+
     }
 }
 
