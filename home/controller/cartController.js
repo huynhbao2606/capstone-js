@@ -178,7 +178,7 @@ class CartController {
         this.$applyCoupon.addEventListener("click", () => {
             const code = this.$coupon.value.trim();
             cartService.applyCoupon(code);
-            this.updateTotalsUI(true);
+            this.updateTotals(true);
         });
 
         // Clear cart
