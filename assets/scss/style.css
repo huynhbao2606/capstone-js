@@ -43,6 +43,19 @@ header .support-box h5 {
 header .support-box span {
   letter-spacing: 0.015rem;
 }
+header #searchDrawer.-translate-y-full {
+  pointer-events: none;
+}
+header #searchDrawer:not(.-translate-y-full) {
+  pointer-events: auto;
+}
+header .icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+header .search-bar {
+  height: 2.5rem;
+}
 
 #indicators-carousel [data-carousel-prev] span:hover,
 #indicators-carousel [data-carousel-next] span:hover {
