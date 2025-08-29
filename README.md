@@ -1,38 +1,34 @@
 # 🌐 Website Demo
-
-🔗 [[https://capstone-js-cybersoft.vercel.app/](https://capstone-js-cybersoft.vercel.app/)]
+🔗 **Live:** https://capstone-js-cybersoft.vercel.app/
 
 ---
 
 # 📷 Tham khảo giao diện
-<img width="1854" height="923" alt="{9BE7EF14-ECAC-44D0-9684-F286679C9436}" src="https://github.com/user-attachments/assets/137a1fff-2843-41da-bed6-ca31d57b9db2" />
-
-
+<img width="1854" height="923" alt="Demo UI" src="https://github.com/user-attachments/assets/137a1fff-2843-41da-bed6-ca31d57b9db2" />
 
 ---
 
-# 📎 Link Task Notion
+# 📎 Taskboard (Notion)
+👉 **Notion:** https://equable-hovercraft-bc8.notion.site/24a99b1fa17681519827d33512dc9e99?v=24a99b1fa17681fa9d90000cee2cf233  
 
-👉 [Click để xem Notion Taskboard]([https://salty-payment-257.notion.site/2170b462417e80918ac0f262c4ad5b57?v=2170b462417e81aa81d3000c5b50db58](https://equable-hovercraft-bc8.notion.site/24a99b1fa17681519827d33512dc9e99?v=24a99b1fa17681fa9d90000cee2cf233))
-<img width="474" height="730" alt="image" src="https://github.com/user-attachments/assets/8274e954-d00f-4dc3-bf70-5441cc7cfd5b" />
-
+<img width="1713" height="799" alt="Taskboard" src="https://github.com/user-attachments/assets/767e1320-9628-4577-bbe4-325e42816c46" />
 
 ---
 
 # 🛠️ Công nghệ & Thư viện sử dụng
 
-- **Ngôn ngữ & Kỹ thuật:**
-  - HTML5, CSS3, JavaScript (ES6+)
-  - Responsive Design
+- **Ngôn ngữ & Kỹ thuật:**  
+  - HTML5, CSS3, JavaScript (ES6+)  
+  - Responsive Design  
 
-- **Framework & Thư viện chính:**
-  - [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework
-  - [Flowbite](https://flowbite.com/) – UI components dựa trên Tailwind
-  - [jQuery](https://jquery.com/) – Thư viện JS phổ biến
-  - [Waypoints](http://imakewebthings.com/waypoints/) – Scroll-based event triggers
-  - [JOS Animation](https://github.com/jos-studio/jos-animation) – Scroll animation nhẹ
-  - [Google Fonts](https://fonts.google.com/) – Phông chữ web
-  - [Axios] - Kết Nối API
+- **Framework & Thư viện chính:**  
+  - [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework  
+  - [Flowbite](https://flowbite.com/) – UI components dựa trên Tailwind  
+  - [Axios](https://axios-http.com/) – Kết nối API  
+  - [JOS Animation](https://github.com/jos-studio/jos-animation) – Scroll animation nhẹ  
+  - [Waypoints](http://imakewebthings.com/waypoints/) – Trigger event theo scroll  
+  - [Google Fonts](https://fonts.google.com/) – Font chữ web  
+
 ---
 
 # 🚀 Quy trình làm việc với Git
