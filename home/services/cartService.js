@@ -64,10 +64,8 @@ function totals(coupon = (localStorage.getItem(COUPON) || "").toLowerCase()) {
 
     if (!coupon) {
         discount = 0;
-    } else if (coupon === "kha") {
-        discount = Math.round(subTotal * 0.10);
     } else if (coupon === "bao") {
-        discount = Math.round(subTotal * 0.20);
+        discount = Math.round(subTotal * 0.50);
     } else {
         discount = 0;
         invalidCoupon = true;

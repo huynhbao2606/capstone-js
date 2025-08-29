@@ -8,332 +8,237 @@
       href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./../assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/scss/style.css" />
   </head>
-  <body>
-    <!--
-Tạo html bỏ vào folder view muốn gọi thì dùng
-    data-include="(src chứa html)"
-    ví dụ :
-    <div data-include="customer/view/navbar.html"></div>
-    data-include có tác dụng chèn 1 html vào thẻ div đươc truyền vào data-inlucde
-    để tái sử dụng html thay vì viết lại
--->
+  <body class="flex flex-col min-h-screen">
     <header>
-      <nav class="bg-white border-gray-200 dark:bg-gray-900">
-        <div
-          class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
-        >
-          <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img
-              src="./../assets/images/customer/logo.png"
-              class="h-8"
-              alt="Flowbite Logo"
-            />
-            <span class="brand self-center whitespace-nowrap">CyBerPhone</span>
-          </a>
-          <button
-            data-collapse-toggle="navbar-default"
-            type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-default"
-            aria-expanded="false"
-          >
-            <span class="sr-only">Open main menu</span>
-            <svg
-              class="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
-          <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul
-              class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
-            >
-              <li>
-                <a
-                  href="#"
-                  class="rr block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                  aria-current="page"
-                  >Ordered Product Management</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+        <nav class="bg-white shadow-md ">
+            <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <img src="/assets/images/admin/logo.png" alt="Logo" class="h-10 w-auto">
+                    <h1 class="text-xl font-bold text-gray-800 tracking-wide">Admin CRUD</h1>
+                </div>
+
+                <a href="/index.html"
+                   class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700
+                bg-gray-100 border border-gray-200 rounded-lg hover:bg-gray-200 hover:text-gray-900
+                focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-500">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </div>
+        </nav>
     </header>
 
-    <main class="">
-      <div class="max-w-screen-xl mx-auto py-12">
-        <!-- Modal toggle -->
-        <button
-          data-modal-target="crud-modal"
-          data-modal-toggle="crud-modal"
-          class="block qe hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          type="button"
-        >
-          Thêm sản phẩm
-        </button>
 
-        <!-- Main modal -->
-        <div
-          id="crud-modal"
-          tabindex="-1"
-          aria-hidden="true"
-          class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
-        >
-          <div class="relative p-4 w-full max-w-md max-h-full">
-            <!-- Modal content -->
-            <div
-              class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700"
-            >
-              <!-- Modal header -->
-              <div
-                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200"
-              >
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                  Thêm mới sản phẩm
-                </h3>
+    <main class="flex-grow">
+        <div class="flex flex-col sm:flex-row items-center justify-between max-w-7xl mx-auto px-4 py-3 pt-10 gap-3">
+            <form class="flex items-center w-full">
+                <label for="search-input" class="sr-only">Search</label>
+                <div class="relative w-full">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <i class="fa-regular fa-magnifying-glass"></i>
+                    </div>
+                    <input id="search-input" type="text" placeholder="Tìm kiếm theo tên..."
+                           class="block w-full pl-10 p-2.5 text-sm sm:text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-500 focus:border-gray-500">
+                </div>
+            </form>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+
                 <button
-                  type="button"
-                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                  data-modal-toggle="crud-modal"
-                >
-                  <svg
-                    class="w-3 h-3"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 14"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                    />
-                  </svg>
-                  <span class="sr-only">Close modal</span>
+                        id="btnAddProduct"
+                        type="button"
+                        data-modal-target="productModal"
+                        data-modal-toggle="productModal"
+                        data-modal-mode="create"
+                        class="inline-flex items-center justify-center gap-2 h-11 sm:h-10 px-5 text-sm font-medium text-white
+           bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:ring-gray-300
+           w-full sm:w-auto whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-circle-plus text-white text-base"></i>
+                    Thêm sản phẩm
                 </button>
-              </div>
-              <!-- Modal body -->
-              <form class="p-4 md:p-5">
-                <div class="grid gap-4 mb-4 grid-cols-2">
-                  <div class="col-span-2 sm:col-span-1">
-                    <label
-                      for="price"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >Mã sản phẩm</label
-                    >
-                    <input
-                      type="text"
-                      name="id"
-                      id="txtId"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                      placeholder=""
-                      required=""
-                    />
-                  </div>
-                  <div class="col-span-2 sm:col-span-1">
-                    <label
-                      for="name"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >Tên sản phẩm</label
-                    >
-                    <input
-                      type="text"
-                      name="name"
-                      id="txtName"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                      placeholder=""
-                      required=""
-                    />
-                  </div>
-                  <div class="col-span-2 sm:col-span-1">
-                    <label
-                      for="price"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >Giá sản phẩm</label
-                    >
-                    <input
-                      type="number"
-                      name="price"
-                      id="txtPrice"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                      placeholder=""
-                      required=""
-                    />
-                  </div>
-                  <div class="col-span-2 sm:col-span-1">
-                    <label
-                      for="loaiSanPham"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >Loại sản phẩm</label
-                    >
-                    <select
-                      id="txtCategory"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    >
-                      <option selected="">chọn loại sản phẩm</option>
-                      <option value="AP">Apple</option>
-                      <option value="SS">SamSung</option>
-                      <option value="XM">Xiaomi</option>
-                      <option value="OR">Khác</option>
+
+                <div class="w-full sm:w-auto shrink-0">
+                    <label for="sort-select" class="sr-only">Sort</label>
+                    <select id="sort-select"
+                            class="h-11 sm:h-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                   focus:ring-gray-500 focus:border-gray-500 block w-full
+                   sm:min-w-[9.5rem] ps-3">
+                        <option value="">Sắp Xếp</option>
+                        <option value="name-asc">Tên A - Z</option>
+                        <option value="name-desc">Tên Z - A</option>
+                        <option value="price-asc">Giá Thấp - Cao</option>
+                        <option value="price-desc">Giá Cao - Thấp</option>
                     </select>
-                  </div>
-
-                  <div class="col-span-2">
-                    <label
-                      for="images"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >Hình sản phẩm</label
-                    >
-                    <input
-                      type="text"
-                      name="hinhSanPham"
-                      id="txtImage"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                      placeholder="Hình sản phẩm"
-                      required=""
-                    />
-                  </div>
-                  <div class="col-span-2">
-                    <label
-                      for="description"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >Mô tả</label
-                    >
-                    <textarea
-                      id="txtMota"
-                      rows="4"
-                      class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Nhập mô tả sản phẩm"
-                    ></textarea>
-                  </div>
                 </div>
-                <button
-                  type="submit"
-                  class="er inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
-                  <svg
-                    class="me-1 -ms-1 w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  Thêm sản phẩm
-                </button>
-              </form>
             </div>
-          </div>
-        </div>
-      </div>
-      <!--trigger modal-->
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table
-          class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
-        >
-          <thead
-            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
-          >
-            <tr>
-              <th scope="col" class="p-4">
-                <div class="flex items-center">
-                  <input
-                    id="checkbox-all-search"
-                    type="checkbox"
-                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label for="checkbox-all-search" class="sr-only"
-                    >checkbox</label
-                  >
-                </div>
-              </th>
-              <th scope="col" class="px-6 py-3">ID</th>
-              <th scope="col" class="px-6 py-3">Name</th>
-              <th scope="col" class="px-6 py-3">giá sản phẩm</th>
-              <th scope="col" class="px-6 py-3">Loại sản phẩm</th>
 
-              <th scope="col" class="px-6 py-3">Hình ảnh</th>
-              <th scope="col" class="px-6 py-3">Mô tả</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-            >
-              <td class="w-4 p-4">
-                <div class="flex items-center">
-                  <input
-                    id="checkbox-table-search-1"
-                    type="checkbox"
-                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label for="checkbox-table-search-1" class="sr-only"
-                    >checkbox</label
-                  >
-                </div>
-              </td>
-              <th
-                scope="row"
-                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Apple MacBook Pro 17"
-              </th>
-              <td class="px-6 py-4">Silver</td>
-              <td class="px-6 py-4">Laptop</td>
-              <td class="px-6 py-4">Yes</td>
-              <td class="px-6 py-4">Yes</td>
-              <td class="px-6 py-4">$2999</td>
-              <td class="px-6 py-4">3.0 lb.</td>
-              <td class="px-6 py-4">mota</td>
-              <td class="flex items-center px-6 py-4">
-                <a
-                  href="#"
-                  class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >Edit</a
-                >
-                <a
-                  href="#"
-                  class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
-                  >Remove</a
-                >
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+
+        </div>
+
+        <div class="w-full max-w-7xl mx-auto border border-gray-200 rounded-lg overflow-x-auto">
+            <table class="w-full min-w-[900px] text-xs sm:text-sm text-left text-gray-600">
+                <thead class="bg-gray-50 text-gray-700 uppercase">
+                <tr>
+                    <th class="p-3 sm:p-4 sticky left-0 bg-gray-50 z-10">Tên</th>
+                    <th class="p-3 sm:p-4">Loại</th>
+                    <th class="p-3 sm:p-4">Giá</th>
+                    <th class="p-3 sm:p-4">Màn Hình</th>
+                    <th class="p-3 sm:p-4">Cam Sau</th>
+                    <th class="p-3 sm:p-4">Cam Trước</th>
+                    <th class="p-3 sm:p-4 sticky right-0 bg-gray-50 z-10">Hành Động</th>
+                </tr>
+                </thead>
+                <tbody id="list-product"></tbody>
+            </table>
+        </div>
+
+
     </main>
 
-    <footer></footer>
+    <footer class="bg-white  inset-shadow-sm  mt-10">
+        <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
+            <p>&copy; 2025 Cybersoft. All rights reserved.</p>
+            <div class="flex gap-4 mt-3 md:mt-0">
+                <a href="#" class="hover:text-gray-600">Privacy</a>
+                <a href="#" class="hover:text-gray-600">Terms</a>
+                <a href="#" class="hover:text-gray-600">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="productModal" tabindex="-1" aria-hidden="true"
+         class="hidden fixed inset-0 z-50 overflow-y-auto overflow-x-hidden flex items-center justify-center p-4">
+        <div class="relative w-full sm:max-w-4xl">
+            <div class="relative bg-white rounded-lg shadow max-h-[90vh] overflow-y-auto">
+                <div class="flex items-center justify-between p-4 border-b">
+                    <h3 id="productModalTitle" class="text-lg font-semibold text-gray-900">Thêm Sản Phẩm</h3>
+                    <button type="button" data-modal-hide="productModal"
+                            class="text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5">✖</button>
+                </div>
+
+                <form id="productForm" class="p-4 max-w-4xl mx-auto grid gap-4 sm:grid-cols-2">
+
+                    <input type="hidden" id="id" name="id" />
+
+                    <div>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Tên
+                            <span class="text-sm text-gray-500">*</span></label>
+                        <input type="text" id="name"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                        focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
+                               placeholder="Nhập tên sản phẩm...">
+                        <p id="name-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        <p id="name-success" class="mt-2 text-sm text-green-600 hidden"></p>
+                    </div>
+
+                    <div>
+                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Giá
+                            <span class="text-sm text-gray-500">*</span></label>
+                        <input type="number" id="price"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                        focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
+                               placeholder="Nhập giá...">
+                        <p id="price-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        <p id="price-success" class="mt-2 text-sm text-green-600 hidden"></p>
+                    </div>
+
+                    <div>
+                        <label for="type" class="block mb-2 text-sm font-medium text-gray-900">
+                            Loại
+                        <span class="text-sm text-gray-500">*
+                        </span>
+                        </label>
+                        <input type="text" id="type"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                        focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
+                               placeholder="Nhập loại...">
+                        <p id="type-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        <p id="type-success" class="mt-2 text-sm text-green-600 hidden"></p>
+                    </div>
+
+                    <div>
+                        <label for="screen" class="block mb-2 text-sm font-medium text-gray-900">Màn Hình
+                            <span class="text-sm text-gray-500">*</span>
+                        </label>
+                        <input type="text" id="screen"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                        focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
+                               placeholder="Nhập màn hình...">
+                        <p id="screen-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        <p id="screen-success" class="mt-2 text-sm text-green-600 hidden"></p>
+                    </div>
+
+                    <div>
+                        <label for="backCamera" class="block mb-2 text-sm font-medium text-gray-900">Camera Sau
+                            <span class="text-sm text-gray-500">*</span>
+                        </label>
+                        <input type="text" id="backCamera"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                        focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
+                               placeholder="Nhập camera sau...">
+                        <p id="backCamera-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        <p id="backCamera-success" class="mt-2 text-sm text-green-600 hidden"></p>
+                    </div>
+
+                    <div>
+                        <label for="frontCamera" class="block mb-2 text-sm font-medium text-gray-900">Camera Trước
+                            <span class="text-sm text-gray-500">*</span>
+                        </label>
+                        <input type="text" id="frontCamera"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                        focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
+                               placeholder="Nhập camera trước...">
+                        <p id="frontCamera-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        <p id="frontCamera-success" class="mt-2 text-sm text-green-600 hidden"></p>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label for="image" class="block mb-2 text-sm font-medium text-gray-900">Hình Ảnh
+                            <span class="text-sm text-gray-500">*</span>
+                        </label>
+                        <input type="url" id="image"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                        focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
+                               placeholder="https://...">
+                        <p id="image-error" class="mt-2 text-sm text-red-600 hidden"></p>
+                        <p id="image-success" class="mt-2 text-sm text-green-600 hidden"></p>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900">Mô Tả</label>
+                        <textarea id="description" rows="3"
+                                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                           focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
+                                  placeholder="Nhập mô tả..."></textarea>
+                    </div>
+
+                    <div class="sm:col-span-2 flex justify-end gap-3 pt-3">
+                        <button type="button" data-modal-hide="productModal"
+                                class="h-10 px-4 text-sm font-medium text-gray-700 bg-gray-200 rounded-lg
+                         hover:bg-gray-300 focus:ring-4 focus:ring-gray-300">Huỷ</button>
+                        <button id="btnSaveProduct" type="button"
+                                class="h-10 px-4 text-sm font-medium text-white bg-gray-600 rounded-lg
+                         hover:bg-gray-700 focus:ring-4 focus:ring-gray-300">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../assets/js/libs/all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"
       integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="../assets/js/apps/include.js"></script>
-    <script src="../assets/js/apps/main.js"></script>
+      referrerpolicy="no-referrer"></script>
+    <script type="module" src="/assets/js/apps/admin.js"></script>
   </body>
 </html>

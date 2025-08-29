@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-        charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+      charset="UTF-8"
     />
     <title>Cybersoft</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-    <link id="jos-stylesheet" rel="stylesheet" href="https://unpkg.com/jos-animation/dist/jos.css" crossorigin="anonymous" />
-    <link rel="stylesheet" href="assets/scss/style.css">
-</head>
-<body>
-<header class="sticky top-0 z-50 bg-white shadow-sm">
-    <div data-include="home/view/navbar.html"></div>
-</header>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link
+      id="jos-stylesheet"
+      rel="stylesheet"
+      href="https://unpkg.com/jos-animation/dist/jos.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/assets/scss/style.css" />
+  </head>
+  <body>
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+      <div data-include="home/view/navbar.html"></div>
+    </header>
 
-<main class="w-full">
-    <section id="carousel" class="py-4 pt-4" data-include="home/view/carousel.html"></section>
-    <section id="product" class="bg-white m-4" data-include="home/view/product.html"></section>
-</main>
+    <main class="w-full">
+      <section
+        id="carousel"
+        class="py-4 pt-4"
+        data-include="home/view/carousel.html"
+      ></section>
+      <section
+        id="product"
+        class="bg-white m-4"
+        data-include="home/view/product.html"
+      ></section>
+    </main>
 
-<footer class="text-dark shadow bg-gray-50">
-    <div data-include="home/view/footer.html"></div>
-</footer>
+    <footer class="text-dark shadow bg-gray-50">
+      <div data-include="home/view/footer.html"></div>
+    </footer>
 
-<!--Modal-->
-<div data-include="home/view/cart.html"></div>
+    <!--Modal-->
+    <div data-include="home/view/cart.html"></div>
 
-<!--Loading-->
-<div id="loadingScreen" class="loading-overlay hidden">
-    <div class="clock-loader"></div>
-</div>
+    <!--Loading-->
+    <div id="loadingScreen" class="loading-overlay hidden">
+      <div class="clock-loader"></div>
+    </div>
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-<script src="/assets/js/libs/all.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"
-        integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
-<script src="https://unpkg.com/jos-animation/dist/jos.min.js"></script>
-<script src="assets/js/apps/include.js"></script>
-<script type="module" src="assets/js/apps/main.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="/assets/js/libs/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"
+      integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/jos-animation/dist/jos.min.js"></script>
+    <script src="assets/js/apps/include.js"></script>
+    <script type="module" src="assets/js/apps/home.js"></script>
+  </body>
 </html>

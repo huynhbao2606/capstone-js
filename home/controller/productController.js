@@ -3,7 +3,6 @@ import cartService from "../services/cartService.js";
 import {cartController} from "./cartController.js";
 import Product from "../model/product.js";
 
-
 let allProducts = [];
 let listProduct = [];
 
@@ -158,7 +157,6 @@ function renderProduct(products) {
     for (let i = 0; i < products.length; i++) {
         const p = products[i];
         const price = Number(p.price || 0).toLocaleString('vi-VN');
-
 
         const delay = ((i % cols) * 0.06).toFixed(2);
 

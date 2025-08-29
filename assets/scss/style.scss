@@ -2,10 +2,10 @@
 @import "./base/reset";
 @import "./helpers/mixin";
 @import "./components/buttons";
-@import "layouts/user/header";
-@import "layouts/user/carousel";
-@import "layouts/user/content";
-@import "layouts/user/cart";
-@import "layouts/user/loading";
+@import "layouts/home/header";
+@import "layouts/home/carousel";
+@import "layouts/home/content";
+@import "layouts/home/cart";
+@import "layouts/home/loading";
 @import "layouts/admin/header";
 @import "./layouts/admin/styles.scss";

@@ -211,22 +211,5 @@ main .card-hover:hover {
     transform: rotate(1turn);
   }
 }
-.brand {
-  color: #656774;
-  font-size: 30px;
-  font-weight: 600;
-}
-
-.qe {
-  background-color: #dddada;
-}
-
-.er {
-  background-color: #dddada;
-}
-
-.rr {
-  color: #29303b;
-}
 
 /*# sourceMappingURL=style.css.map */
