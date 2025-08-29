@@ -1,13 +1,12 @@
-
+<img width="1788" height="2057" alt="image" src="https://github.com/user-attachments/assets/a5a90650-07bb-49fc-8e95-da7ff0e4fb52" />
 # 🌐 Website Demo
 
-🔗 [[https://capstone-cybersoft.vercel.app/](https://capstone-cybersoft.vercel.app/)]
+🔗 [[https://capstone-js-cybersoft.vercel.app/](https://capstone-js-cybersoft.vercel.app/)]
 
 ---
 
 # 📷 Tham khảo giao diện
-
-![Giao diện mẫu](![Uploading image.png…]())
+<img width="1788" height="2057" alt="image" src="https://github.com/user-attachments/assets/3d634b4f-a83e-4b90-9109-5da8986c854e" />
 
 ---
 
