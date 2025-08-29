@@ -1,4 +1,3 @@
-<img width="1788" height="2057" alt="image" src="https://github.com/user-attachments/assets/a5a90650-07bb-49fc-8e95-da7ff0e4fb52" />
 # 🌐 Website Demo
 
 🔗 [[https://capstone-js-cybersoft.vercel.app/](https://capstone-js-cybersoft.vercel.app/)]
@@ -6,13 +5,16 @@
 ---
 
 # 📷 Tham khảo giao diện
-<img width="1788" height="2057" alt="image" src="https://github.com/user-attachments/assets/3d634b4f-a83e-4b90-9109-5da8986c854e" />
+<img width="474" height="730" alt="image" src="https://github.com/user-attachments/assets/1cab969c-0670-4e56-9201-47d7338684bc" />
+
 
 ---
 
 # 📎 Link Task Notion
 
 👉 [Click để xem Notion Taskboard]([https://salty-payment-257.notion.site/2170b462417e80918ac0f262c4ad5b57?v=2170b462417e81aa81d3000c5b50db58](https://equable-hovercraft-bc8.notion.site/24a99b1fa17681519827d33512dc9e99?v=24a99b1fa17681fa9d90000cee2cf233))
+<img width="474" height="730" alt="image" src="https://github.com/user-attachments/assets/8274e954-d00f-4dc3-bf70-5441cc7cfd5b" />
+
 
 ---
 
