@@ -5,7 +5,8 @@
 ---
 
 # 📷 Tham khảo giao diện
-<img width="474" height="730" alt="image" src="https://github.com/user-attachments/assets/1cab969c-0670-4e56-9201-47d7338684bc" />
+<img width="1854" height="923" alt="{9BE7EF14-ECAC-44D0-9684-F286679C9436}" src="https://github.com/user-attachments/assets/137a1fff-2843-41da-bed6-ca31d57b9db2" />
+
 
 
 ---
